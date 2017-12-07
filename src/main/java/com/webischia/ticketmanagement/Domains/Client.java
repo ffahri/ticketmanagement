@@ -1,14 +1,15 @@
 package com.webischia.ticketmanagement.Domains;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Data
+@EqualsAndHashCode(exclude = {"messages"})
 public class Client {
 
 
@@ -21,8 +22,9 @@ public class Client {
 
     private String email;
 
-    /*
+
+    @ManyToOne// ????? todo
     private Set<Message> messages = new HashSet<>();
-     */
+
 
 }

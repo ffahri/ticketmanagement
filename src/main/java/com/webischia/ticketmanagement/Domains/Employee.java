@@ -1,15 +1,16 @@
 package com.webischia.ticketmanagement.Domains;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.hibernate.validator.constraints.UniqueElements;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Data
+@EqualsAndHashCode(exclude = {"client","employeeSet"})
 public class Employee {
 
     @Id
@@ -20,4 +21,6 @@ public class Employee {
     private String surname;
     //@UniqueElements eklenecek
     private String email;
+    @ManyToMany(mappedBy = "employeeSet")
+    private Set<Message> messages = new HashSet<>();
 }
