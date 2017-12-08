@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public interface MessageRepository extends CrudRepository <Message,Long>{
 
-    Optional<Message> findById(long id);
+  /*  Optional<Message> findById(long id);
     Optional<Message> findByClientId(int id);
-    Optional<Message> findByEmployeeId(int id);
+    //Optional<Message> findByEmployeeId(int id);*/
 }

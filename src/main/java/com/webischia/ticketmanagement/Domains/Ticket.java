@@ -1,34 +1,31 @@
 package com.webischia.ticketmanagement.Domains;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.Set;
-
 @Entity
 @Data
-public class Message {
+public class Ticket {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private int id;
 
-    private String messageContext;
+    private String ticketTitle;
+
+    @OneToMany(mappedBy = "ticketMessage")
+    private Set<Message> messages;
 
     @ManyToOne
-    @JoinColumn(name="ticket_id" , nullable = false)// bir mesaj yalnız ve yalnız bir kullanıcıya ait olabilir.
-    private Ticket ticketMessage;
+    @JoinColumn(name = "user_id",nullable = false)
+    private User userTicket;
 
-    @ManyToOne
-    @JoinColumn(name="user_id" , nullable = false)
-    private User userMessage;
+    private boolean status;
 
     @Temporal(TemporalType.TIMESTAMP) //todo kontrol edelim elle girerken filan data.sql ile olmadı
     private Date creationDate = new Date();
-
 
 
 }
