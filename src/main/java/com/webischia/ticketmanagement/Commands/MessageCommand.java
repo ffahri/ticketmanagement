@@ -1,24 +1,22 @@
 package com.webischia.ticketmanagement.Commands;
 
-import com.webischia.ticketmanagement.Domains.Message;
+import com.webischia.ticketmanagement.Domains.Ticket;
 import com.webischia.ticketmanagement.Domains.User;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 @Getter
 @Setter
 @NoArgsConstructor
-public class TicketCommand {
+public class MessageCommand {
 
     private int id;
-    private String ticketTitle;
-    private Set<Message> messages = new HashSet<>();
-    private User userTicket;
-    private boolean status;
+    private String messageContext;
+    private Ticket ticketMessage;
+    private User userMessage;
     private Date creationDate = new Date();
+
 }
