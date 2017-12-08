@@ -1,5 +1,5 @@
-INSERT INTO ACCESSLEVEL (description) VALUES ('Client');
-INSERT INTO ACCESSLEVEL (description) VALUES ('Employee');
+INSERT INTO ACCESS_LEVEL (description) VALUES ('Client');
+INSERT INTO ACCESS_LEVEL (description) VALUES ('Employee');
 
 
 INSERT INTO USER (name,surname,email,access_id) VALUES ('Richard','Stallman','rms@gnu.org',1);
