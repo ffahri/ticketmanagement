@@ -1,11 +1,13 @@
 package com.webischia.ticketmanagement.Domains;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@EqualsAndHashCode(exclude = {"useraccess"})
 @Data
 public class AccessLevel {
 

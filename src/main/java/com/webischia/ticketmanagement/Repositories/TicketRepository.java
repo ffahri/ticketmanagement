@@ -8,6 +8,6 @@ import java.util.Optional;
 public interface TicketRepository extends CrudRepository<Ticket,Integer>{
 
     Optional<Ticket> findById(int id);
-    Optional<Ticket> getAllByStatus();
+    Optional<Ticket> getAllByStatus(Boolean status);
     Optional<Ticket> findByTicketTitle(String title);
 }

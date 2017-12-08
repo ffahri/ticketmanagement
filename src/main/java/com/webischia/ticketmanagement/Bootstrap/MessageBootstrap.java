@@ -24,7 +24,7 @@ public class MessageBootstrap implements ApplicationListener<ContextRefreshedEve
     @Transactional
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
 
-        //messageRepository.save(makeMessage());
+     //   messageRepository.save(makeMessage());
     }
 
     private List<Message> makeMessage()

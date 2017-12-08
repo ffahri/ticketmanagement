@@ -9,6 +9,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@EqualsAndHashCode(exclude = {"ticketMessage","userMessage"})
 @Data
 public class Message {
 

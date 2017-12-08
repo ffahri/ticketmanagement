@@ -1,12 +1,15 @@
 package com.webischia.ticketmanagement.Domains;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@EqualsAndHashCode(exclude = {"accessLevel","ticketSet","messages"})
 @Data
 public class User {
 
@@ -27,8 +30,8 @@ public class User {
     private AccessLevel accessLevel;
 
     @OneToMany(mappedBy = "userTicket")
-    private Set<Ticket> ticketSet;
+    private Set<Ticket> ticketSet = new HashSet<>();
 
     @OneToMany(mappedBy = "userMessage")
-    private Set<Message> messages;
+    private Set<Message> messages = new HashSet<>();
 }

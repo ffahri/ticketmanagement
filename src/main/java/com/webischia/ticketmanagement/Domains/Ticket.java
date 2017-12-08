@@ -1,11 +1,14 @@
 package com.webischia.ticketmanagement.Domains;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 @Entity
+@EqualsAndHashCode(exclude = {"messages","userTicket"})
 @Data
 public class Ticket {
 
@@ -16,7 +19,7 @@ public class Ticket {
     private String ticketTitle;
 
     @OneToMany(mappedBy = "ticketMessage")
-    private Set<Message> messages;
+    private Set<Message> messages = new HashSet<>();
 
     @ManyToOne
     @JoinColumn(name = "user_id",nullable = false)
