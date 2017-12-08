@@ -23,7 +23,7 @@ public class UserController {
 
         return "user/create";
     }
-    @RequestMapping({"/user/","/user/index"})
+    @RequestMapping({"/user","/user/index"})
     private String userDashboard()
     {
 
