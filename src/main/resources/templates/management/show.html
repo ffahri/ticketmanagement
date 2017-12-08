@@ -1,0 +1,52 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"
+          th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}">
+
+    <script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous" th:src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
+    <meta charset="UTF-8"/>
+    <title>Show Ticket</title>
+<style>
+    .speech-bubble { position: relative; background: #00aabb; border-radius: .4em; !important; } .speech-bubble:after { content: ''; position: absolute; right: 0; top: 50%; width: 0; height: 0; border: 1.031em solid transparent; border-left-color: #00aabb; border-right: 0; margin-top: -1.031em; margin-right: -1.031em; !important;}
+</style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="col-xs-12">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title" th:text="${ticketv.ticketTitle}">
+                        Panel title
+                    </h3>
+                </div>
+                <div class="panel-body">
+
+                   <div class="speech-bubble" >
+                      <!--  BURASI CHAT KISMI TABLO YOK ASLINDA
+                       todo  https://www.w3schools.com/howto/howto_css_chat.asp-->
+                       <table >
+                           <tr>
+                               <td> </td>
+                           </tr>
+                           <tr th:each="message :${ticketv.messages}" >
+                               <td th:text="${message.messageContext}"> Context </td>
+                           </tr>
+                       </table>
+                   </div>
+                </div>
+                <div class="panel-footer">
+                    Panel footer
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

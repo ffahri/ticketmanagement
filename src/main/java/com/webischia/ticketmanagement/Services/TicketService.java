@@ -6,4 +6,7 @@ import java.util.Set;
 
 public interface TicketService {
     Set<Ticket> getTickets();
+
+    Ticket findById(int id);
+
 }

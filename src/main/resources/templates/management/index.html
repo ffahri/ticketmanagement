@@ -64,89 +64,22 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>
+                <tr id="success" th:each="ticket: ${tickets}">
+                    <td th:text="${ticket.id}">
                         1
                     </td>
-                    <td>
+                    <td th:text="${ticket.ticketTitle}">
                         TB - Monthly
                     </td>
-                    <td>
+                    <td th:text="${ticket.creationDate}">
                         01/04/2012
                     </td>
-                    <td>
+                    <td th:text="${ticket.status}">
                         Default
                     </td>
                     <td>
-                        <button class="btn btn-success" type="button">İncele</button>
-                    </td>
-                </tr>
-                <tr class="success">
-                    <td>
-                        1
-                    </td>
-                    <td>
-                        TB - Monthly
-                    </td>
-                    <td>
-                        01/04/2012
-                    </td>
-                    <td>
-                        Approved
-                    </td>
-                    <td>
-                        İncele
-                    </td>
-                </tr>
-                <tr class="error">
-                    <td>
-                        2
-                    </td>
-                    <td>
-                        TB - Monthly
-                    </td>
-                    <td>
-                        02/04/2012
-                    </td>
-                    <td>
-                        Declined
-                    </td>
-                    <td>
-                        İncele
-                    </td>
-                </tr>
-                <tr class="warning">
-                    <td>
-                        3
-                    </td>
-                    <td>
-                        TB - Monthly
-                    </td>
-                    <td>
-                        03/04/2012
-                    </td>
-                    <td>
-                        Pending
-                    </td>
-                    <td>
-                        İncele
-                    </td>
-                </tr>
-                <tr class="info">
-                    <td>
-                        4
-                    </td>
-                    <td>
-                        TB - Monthly
-                    </td>
-                    <td>
-                        04/04/2012
-                    </td>
-                    <td>
-                        Call in to confirm
-                    </td>
-                    <td>
-                        İncele
+                        <a href="#" th:href="@{'/management/show/'+${ticket.id}}"> <button class="btn btn-success" type="button">İncele</button>
+                        </a>
                     </td>
                 </tr>
                 </tbody>

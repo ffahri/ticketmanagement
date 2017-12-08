@@ -13,11 +13,4 @@ public class IndexController {
         return "index";//file /resources/templates/index.html
     }
 
-
-    @RequestMapping({"/management/index"})
-    public String gettest()
-    {
-
-        return "management/index";//file /resources/templates/index.html
-    }
 }
