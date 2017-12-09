@@ -24,7 +24,7 @@ public class ManagementController {
         return "management/index";
     }
     @RequestMapping("/management/show/{id}")
-    public String kitapla(@PathVariable int id, Model model)
+    public String showTicket(@PathVariable int id, Model model)
     {
         model.addAttribute("ticketv",ticketService.findById(id));
         return "management/show";

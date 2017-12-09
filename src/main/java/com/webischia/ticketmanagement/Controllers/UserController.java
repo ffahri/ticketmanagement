@@ -11,6 +11,7 @@ import com.webischia.ticketmanagement.Services.TicketService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -33,6 +34,13 @@ public class UserController {
         model.addAttribute("ticket",new TicketCommand());
         model.addAttribute("message",new MessageCommand());
         return "user/create";
+    }
+    @RequestMapping("/user/show/{id}")
+    public String showTicket(@PathVariable int id, Model model)
+    {
+        model.addAttribute("ticketv",ticketService.findById(id));
+        return "user/show";
+
     }
     @RequestMapping({"/user","/user/index"})
     private String userDashboard()
