@@ -22,7 +22,7 @@ public class User {
     private String email;
     private String phone;
 
-    @Temporal(TemporalType.TIMESTAMP) //todo kontrol edelim elle girerken filan data.sql ile olmadı
+    @Temporal(TemporalType.TIMESTAMP)
     private Date creationDate = new Date();
 
     @OneToOne(cascade = CascadeType.ALL)

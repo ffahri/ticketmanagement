@@ -7,9 +7,11 @@ import com.webischia.ticketmanagement.Repositories.MessageRepository;
 import com.webischia.ticketmanagement.Repositories.TicketRepository;
 import com.webischia.ticketmanagement.Repositories.UserRepository;
 import lombok.Synchronized;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
 
+@Slf4j
 @Service
 public class MessageServiceImpl implements MessageService {
 
@@ -38,5 +40,11 @@ public class MessageServiceImpl implements MessageService {
         mesaj.setCreationDate(messageCommand.getCreationDate());
         mesaj.setUserMessage(userRepository.findById(1).get());
         messageRepository.save(mesaj);
+    }
+
+    public void deleteById(int id)
+    {
+        messageRepository.deleteById(id);
+        log.debug("Message Service --- Silme başarılı");
     }
 }

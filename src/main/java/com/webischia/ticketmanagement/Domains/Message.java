@@ -27,7 +27,7 @@ public class Message {
     @JoinColumn(name="user_id" , nullable = false)
     private User userMessage;
 
-    @Temporal(TemporalType.TIMESTAMP) //todo kontrol edelim elle girerken filan data.sql ile olmadı -- bootstrap ile oldu no problem
+    @Temporal(TemporalType.TIMESTAMP)
     private Date creationDate = new Date();
 
 
