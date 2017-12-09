@@ -2,9 +2,11 @@ package com.webischia.ticketmanagement.Repositories;
 
 import com.webischia.ticketmanagement.Domains.Message;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
+@Repository
 public interface MessageRepository extends CrudRepository <Message,Integer> {
 
     Optional<Message> findById(int id);

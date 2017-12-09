@@ -3,6 +3,7 @@ package com.webischia.ticketmanagement.Controllers;
 
 import com.webischia.ticketmanagement.Commands.MessageCommand;
 import com.webischia.ticketmanagement.Commands.TicketCommand;
+import com.webischia.ticketmanagement.Domains.Message;
 import com.webischia.ticketmanagement.Repositories.MessageRepository;
 import com.webischia.ticketmanagement.Repositories.TicketRepository;
 import com.webischia.ticketmanagement.Services.MessageService;
@@ -18,9 +19,11 @@ public class UserController {
 
 
     private final TicketService ticketService;
+    private final MessageService messageService;
 
-    public UserController(TicketService ticketService) {
+    public UserController(TicketService ticketService, MessageService messageService) {
         this.ticketService = ticketService;
+        this.messageService = messageService;
     }
 
     @RequestMapping("/user/create")
@@ -36,11 +39,16 @@ public class UserController {
     {
         return "user/index";
     }
+
     @PostMapping
     @RequestMapping("/user/add")
     private String addOrUpdate(@ModelAttribute TicketCommand ticketCommand,@ModelAttribute MessageCommand messageCommand)
     {
-        TicketCommand ticketC = ticketService.saveTicket(ticketCommand,messageCommand);
-        return "redirect:user/show/"+ticketC.getId();
+      //  ticketCommand.getMessages().add(messageCommand);
+        if(ticketCommand == null)
+            return "";
+        TicketCommand ticketC = ticketService.saveTicket(ticketCommand);
+        messageService.saveMessage(messageCommand,ticketC.getId());
+        return userDashboard();
     }
 }

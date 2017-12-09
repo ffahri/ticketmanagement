@@ -58,18 +58,20 @@ public class TicketServiceImpl implements TicketService{
 
     @Override
     @Transactional
-    public TicketCommand saveTicket(TicketCommand ticketCommand , MessageCommand messageCommand) {
-        ticketCommand.getMessages().add(messageCommand);
-        Message mCommand = toMessage.convert(messageCommand);
-        Ticket tCommand = toTicket.convert(ticketCommand);
-        tCommand.getMessages().add(mCommand);
+    public TicketCommand saveTicket(TicketCommand ticketCommand) {
+        Ticket tCommand = new Ticket();//toTicket.convert(ticketCommand);
+        //tCommand.getMessages().add(mCommand);
+        tCommand.setStatus(ticketCommand.isStatus());
+        tCommand.setTicketTitle(ticketCommand.getTicketTitle());
+        tCommand.setCreationDate(ticketCommand.getCreationDate());
+        tCommand.setId(ticketCommand.getId());
         tCommand.setUserTicket(userRepository.findById(1).get());
         Ticket after = ticketRepository.save(tCommand);
+     //   Message mCommand = toMessage.convert(messageCommand);
+      //  mCommand.setUserMessage(userRepository.findById(1).get());
+      //  mCommand.setTicketMessage(findById(after.getId()));
+      //  messageRepository.save(mCommand);
 
-        mCommand.setUserMessage(userRepository.findById(1).get());
-        mCommand.setTicketMessage(findById(after.getId()));
-        messageRepository.save(mCommand);
-
-        return toTicketCommand.convert(tCommand);
+        return toTicketCommand.convert(after);
     }
 }

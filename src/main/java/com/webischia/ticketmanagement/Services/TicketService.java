@@ -10,5 +10,5 @@ public interface TicketService {
     Set<Ticket> getTickets();
 
     Ticket findById(int id);
-    TicketCommand saveTicket(TicketCommand ticketCommand, MessageCommand messageCommand);
+    TicketCommand saveTicket(TicketCommand ticketCommand);
 }

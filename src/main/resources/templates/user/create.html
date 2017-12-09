@@ -94,9 +94,9 @@
                 </div>
 
             </nav>
-            <form  th:action="@{/user/add}"> <!--th:object="${ticket}"-->
+            <form  th:object="${ticket}" th:action="@{/user/add}"> <!--th:object="${ticket}"-->
             <label class="control-label">Şikayet Konusu</label>
-            <input class="form-control" type="text" th:text="${ticket.ticketTitle}"/>
+            <input class="form-control" type="text" th:field="${ticket.ticketTitle}"/>
 
            <!-- todo or not todo thats my decision(i guess)
             <label class="control-label">Kategori</label>

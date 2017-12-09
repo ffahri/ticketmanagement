@@ -29,12 +29,12 @@ public class TicketToTicketCommand implements Converter<Ticket,TicketCommand> {
         ticketCommand.setStatus(ticket.isStatus());
         ticketCommand.setTicketTitle(ticket.getTicketTitle());
         ticketCommand.setUserTicket(ticket.getUserTicket());
-
+/*
         if(ticket.getMessages() != null && ticket.getMessages().size() > 0)
         {
             ticket.getMessages().forEach(message -> ticketCommand.getMessages().add(toMessageCommand.convert(message)));
 
-        }
+        }*/
         return ticketCommand;
     }
 }

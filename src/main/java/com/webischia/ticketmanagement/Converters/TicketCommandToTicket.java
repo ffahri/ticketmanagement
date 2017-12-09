@@ -35,11 +35,11 @@ public class TicketCommandToTicket implements Converter<TicketCommand,Ticket> {
         ticket.setId(ticketCommand.getId());
         ticket.setCreationDate(ticketCommand.getCreationDate());
 
-        if(ticketCommand.getMessages() != null && ticketCommand.getMessages().size() > 0 )
+        /*if(ticketCommand.getMessages() != null && ticketCommand.getMessages().size() > 0 )
         {
             ticketCommand.getMessages().forEach(message -> ticket.getMessages().add(toMessage.convert(message)));
         }
-
+*/
         return ticket;
     }
 }
