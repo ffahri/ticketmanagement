@@ -40,7 +40,7 @@ public class UserController {
     @RequestMapping("/user/add")
     private String addOrUpdate(@ModelAttribute TicketCommand ticketCommand,@ModelAttribute MessageCommand messageCommand)
     {
-        TicketCommand ticketC = ticketService.saveTicket(ticketCommand,messageCommand,int userid);
+        TicketCommand ticketC = ticketService.saveTicket(ticketCommand,messageCommand);
         return "redirect:user/show/"+ticketC.getId();
     }
 }

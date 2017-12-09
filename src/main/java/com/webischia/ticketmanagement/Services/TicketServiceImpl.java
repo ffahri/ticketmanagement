@@ -50,7 +50,7 @@ public class TicketServiceImpl implements TicketService{
         Optional<Ticket> findOpt = ticketRepository.findById(id);
         if(!findOpt.isPresent())
         {
-            throw new RuntimeException("BULAMADIK"); //todo ileride bunu güzelce siteye ekle
+            throw new RuntimeException("BULAMADIK = " + id); //todo ileride bunu güzelce siteye ekle
         }
 
         return findOpt.get();
@@ -59,11 +59,15 @@ public class TicketServiceImpl implements TicketService{
     @Override
     @Transactional
     public TicketCommand saveTicket(TicketCommand ticketCommand , MessageCommand messageCommand) {
-        Ticket tCommand = toTicket.convert(ticketCommand);
-        tCommand.setUserTicket(userRepository.findById());
-        ticketRepository.save(tCommand);
+        ticketCommand.getMessages().add(messageCommand);
         Message mCommand = toMessage.convert(messageCommand);
-        mCommand.setTicketMessage(this.findById(messageCommand.getId()));
+        Ticket tCommand = toTicket.convert(ticketCommand);
+        tCommand.getMessages().add(mCommand);
+        tCommand.setUserTicket(userRepository.findById(1).get());
+        Ticket after = ticketRepository.save(tCommand);
+
+        mCommand.setUserMessage(userRepository.findById(1).get());
+        mCommand.setTicketMessage(findById(after.getId()));
         messageRepository.save(mCommand);
 
         return toTicketCommand.convert(tCommand);
