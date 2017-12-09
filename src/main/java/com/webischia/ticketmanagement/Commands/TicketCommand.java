@@ -17,7 +17,7 @@ public class TicketCommand {
 
     private int id;
     private String ticketTitle;
-    private Set<Message> messages = new HashSet<>();
+    private Set<MessageCommand> messages = new HashSet<>();
     private User userTicket;
     private boolean status;
     private Date creationDate = new Date();

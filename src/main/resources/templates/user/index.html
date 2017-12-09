@@ -97,14 +97,60 @@
             </nav>
             <div class="jumbotron">
                 <h2>
-                    Hello, world!
+                    Şikayet Sistemine Hoşgeldiniz
                 </h2>
                 <p>
-                    This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.
+                   Daha önceden oluşturduğunuz şikayetleri aşağıdaki tablodan görebilir veya yeni bir şikayet oluşturmak için aşağıdaki butona basabilirsiniz.
                 </p>
                 <p>
                     <a class="btn btn-primary btn-large" href="#" th:href="@{'/user/create'}">Şikayet Oluştur</a>
                 </p>
+            </div>
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3>Şikayetleriniz</h3>
+                </div>
+            <table class="table table-bordered table-hover table-condensed">
+                <thead>
+                <tr>
+                    <th>
+                        #
+                    </th>
+                    <th>
+                        Konu
+                    </th>
+                    <th>
+                        Oluşturulma Tarihi
+                    </th>
+                    <th>
+                        Durum
+                    </th>
+                    <th>
+                        İşlem
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr id="success" th:each="ticket: ${tickets}">
+                    <td th:text="${ticket.id}">
+                        1
+                    </td>
+                    <td th:text="${ticket.ticketTitle}">
+                        TB - Monthly
+                    </td>
+                    <td th:text="${ticket.creationDate}">
+                        01/04/2012
+                    </td>
+                    <td th:text="${ticket.status}">
+                        Default
+                    </td>
+                    <td>
+                        <a href="#" th:href="@{'/management/show/'+${ticket.id}}"> <button class="btn btn-success" type="button">İncele</button>
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
             </div>
         </div>
     </div>

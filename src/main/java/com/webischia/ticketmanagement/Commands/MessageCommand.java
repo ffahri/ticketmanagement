@@ -15,7 +15,7 @@ public class MessageCommand {
 
     private int id;
     private String messageContext;
-    private Ticket ticketMessage;
+    private TicketCommand ticketMessage;
     private User userMessage;
     private Date creationDate = new Date();
 
