@@ -8,7 +8,7 @@ public class SecurityWebApplicationInitializer extends AbstractAnnotationConfigD
 
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[] {SecurityConfig.class};
+        return new Class[] {MvcSecurityConfigurer.class};
     }
 
     @Nullable
