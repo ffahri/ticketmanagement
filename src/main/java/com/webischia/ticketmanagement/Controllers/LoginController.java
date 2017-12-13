@@ -11,4 +11,9 @@ public class LoginController {
     {
         return "/giris/login";
     }
+    @RequestMapping("/cikis")
+    private String redirectLogout()
+    {
+        return "/cikis/logout";
+    }
 }

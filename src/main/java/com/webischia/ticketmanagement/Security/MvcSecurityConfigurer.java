@@ -35,6 +35,11 @@ public class MvcSecurityConfigurer extends WebSecurityConfigurerAdapter{
                     .loginPage("/giris")
                     .permitAll()
                 .and()
+                .logout()
+                  //  .logoutUrl("/cikis")
+                    .logoutSuccessUrl("/")
+                    .invalidateHttpSession(true)
+                    .and()
                 .httpBasic();
 
     }
